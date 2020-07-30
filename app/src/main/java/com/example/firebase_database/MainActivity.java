@@ -29,7 +29,7 @@ import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
-public class MainActivity extends AppCompatActivity implements ImageAdapter.OnItemClickListener {
+public class MainActivity extends AppCompatActivity  {
 
     private static final int PICK_IMAGE_REQUEST = 1;
 
@@ -190,20 +190,4 @@ public class MainActivity extends AppCompatActivity implements ImageAdapter.OnIt
 
     }
 
-    @Override
-    public void onItemClick(int position) {
-        Toast.makeText(this, "Normal click at position: " + position, Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void onDoWhatEverClick(int position) {
-        Toast.makeText(this, "Normal click at position: " + position, Toast.LENGTH_SHORT).show();
-
-    }
-
-    @Override
-    public void onDeleteClick(int position) {
-        Toast.makeText(this, "Normal click at position: " + position, Toast.LENGTH_SHORT).show();
-
-    }
 }
