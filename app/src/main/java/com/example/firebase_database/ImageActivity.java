@@ -1,6 +1,7 @@
 package com.example.firebase_database;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -32,10 +33,14 @@ public class ImageActivity extends AppCompatActivity implements ImageAdapter.OnI
     private ValueEventListener mDBListener;
     private List<Upload> mUploads;
 
+    public static final String TAG = "imageactivity";
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_image);
+
+        Log.i(TAG, "onCreate: ");
 
         mRecyclerView = findViewById(R.id.recycle_view);
         mRecyclerView.setHasFixedSize(true);
@@ -56,7 +61,7 @@ public class ImageActivity extends AppCompatActivity implements ImageAdapter.OnI
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 mUploads.clear();
                 for (DataSnapshot postSnapshot : snapshot.getChildren()) {
-                    Upload upload = postSnapshot.getValue(Upload.class);
+                    Upload upload = postSnapshot.getValue(Upload.class); // empty constructor used
                     upload.setmKey(snapshot.getKey());
                     mUploads.add(upload);
                 }
@@ -77,11 +82,13 @@ public class ImageActivity extends AppCompatActivity implements ImageAdapter.OnI
 
     @Override
     public void onItemClick(int position) {
+        Toast.makeText(ImageActivity.this, "lciked" , Toast.LENGTH_SHORT).show();
 
     }
 
     @Override
     public void onDoWhatEverClick(int position) {
+        Toast.makeText(ImageActivity.this, "Dowhatever", Toast.LENGTH_SHORT).show();
 
     }
 

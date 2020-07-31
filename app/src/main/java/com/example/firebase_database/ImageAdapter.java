@@ -37,7 +37,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageHolder>
     @Override
     public void onBindViewHolder(@NonNull ImageHolder holder, int position) {
         Upload uploadCurrent = mUpload.get(position);
-        holder.textViewName.setText(uploadCurrent.toString());
+        holder.textViewName.setText(uploadCurrent.getmName());
         Picasso.get().load(uploadCurrent.getmImageUri())
                 .fit()
                 .centerCrop()
@@ -51,17 +51,17 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageHolder>
     }
 
     public class ImageHolder extends RecyclerView.ViewHolder implements View.OnCreateContextMenuListener, View.OnClickListener, MenuItem.OnMenuItemClickListener {
-        private TextView textViewName;
-        private ImageView imageView;
+        public TextView textViewName;
+        public ImageView imageView;
 
         public ImageHolder(@NonNull View itemView) {
             super(itemView);
 
             textViewName = itemView.findViewById(R.id.text_view_name);
-            imageView = itemView.findViewById(R.id.image_view);
+            imageView = itemView.findViewById(R.id.image_view_upload);
 
-            imageView.setOnClickListener(this);
-            imageView.setOnCreateContextMenuListener(this);
+            itemView.setOnClickListener(this);
+            itemView.setOnCreateContextMenuListener(this);
 
         }
 
