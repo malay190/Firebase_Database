@@ -62,7 +62,7 @@ public class ImageActivity extends AppCompatActivity implements ImageAdapter.OnI
                 mUploads.clear();
                 for (DataSnapshot postSnapshot : snapshot.getChildren()) {
                     Upload upload = postSnapshot.getValue(Upload.class); // empty constructor used
-                    upload.setmKey(snapshot.getKey());
+                    upload.setmKey(postSnapshot.getKey());
                     mUploads.add(upload);
                 }
                 mAdapter.notifyDataSetChanged();

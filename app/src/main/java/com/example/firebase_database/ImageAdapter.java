@@ -50,7 +50,8 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageHolder>
         return mUpload.size();
     }
 
-    public class ImageHolder extends RecyclerView.ViewHolder implements View.OnCreateContextMenuListener, View.OnClickListener, MenuItem.OnMenuItemClickListener {
+    public class ImageHolder extends RecyclerView.ViewHolder implements View.OnCreateContextMenuListener,
+            View.OnClickListener, MenuItem.OnMenuItemClickListener {
         public TextView textViewName;
         public ImageView imageView;
 

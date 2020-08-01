@@ -145,6 +145,7 @@ public class MainActivity extends AppCompatActivity  {
             StorageReference fileReference = mStorageRef.child(System.currentTimeMillis() +
                     "." + getFileExtension(mImageUri));
 
+            // File with extension is uploaded into Firebase Storage with
             mUploadTask = fileReference.putFile(mImageUri)
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
@@ -159,7 +160,7 @@ public class MainActivity extends AppCompatActivity  {
 
                             Toast.makeText(MainActivity.this, "Upload successful", Toast.LENGTH_LONG).show();
                             Upload upload = new Upload(mEnterFileName.getText().toString().trim(),
-                                    taskSnapshot.getMetadata().getReference().getDownloadUrl().toString());
+                                    taskSnapshot.getStorage().getDownloadUrl().toString());
                             String uploadId = mDatabaseRef.push().getKey();
                             mDatabaseRef.child(uploadId).setValue(upload);
 
